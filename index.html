@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Регистрация</h2>
+        <input type="text" id="username" placeholder="Введите имя">
+        <input type="password" id="password" placeholder="Введите пароль">
+        <button onclick="register()">Зарегистрироваться</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function register() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            if (username.length < 3) {
+                message.innerHTML = "Имя должно быть не менее 3 символов!";
+                message.classList.add("error");
+                return;
+            }
+            
+            if (password.length < 6) {
+                message.innerHTML = "Пароль должен быть не менее 6 символов!";
+                message.classList.add("error");
+                return;
+
+        }
+
+        message.innerHTML = "Вы успешно зарегистрированы!";
+        message.style.color = "green";
+
+    }
+    </script>
+ </body>
+</html>
