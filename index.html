@@ -1,98 +1,40 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-        }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            width: 300px;
-        }
-        h2 {
-            color: #333;
-        }
-        input {
-            width: calc(100% - 20px);
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            outline: none;
-            font-size: 16px;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background: #6a11cb;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-        button:hover {
-            background: #2575fc;
-        }
-        .error {
-            color: red;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-        .success {
-            color: green;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>Регистрация</h2>
-        <input type="text" id="username" placeholder="Введите имя">
-        <input type="password" id="password" placeholder="Введите пароль">
-        <button onclick="register()">Зарегистрироваться</button>
-        <p id="message"></p>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <div class="overlap-group">
+        <div class="text-wrapper">Днепр</div>
+        <div class="div">24°</div>
+        <div class="text-wrapper-2">По ощущениям как 27°</div>
+        <div class="text-wrapper-3">Макс.: 30°, Мин.: 15°</div>
+        <img class="rectangle" src="Rectangle 2881.png" />
+        <div class="rectangle-2"></div>
+        <div class="text-wrapper-4">
+            <input type="text"
+            placeholder="Search City"
+            class="custom-input">
+        </div>
+      </div>
     </div>
 
     <script>
-        function register() {
-            let username = document.getElementById("username").value.trim();
-            let password = document.getElementById("password").value.trim();
-            let message = document.getElementById("message");
-            message.classList.remove("error", "success");
+      const apiKey = "1b3fc4e0a81872081f6a29d893f3eef2";
+      const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=bangalore";
 
-            if (username.length < 3) {
-                message.innerHTML = "Имя должно быть не менее 3 символов!";
-                message.classList.add("error");
-                return;
-            }
-            
-            if (password.length < 6) {
-                message.innerHTML = "Пароль должен быть не менее 6 символов!";
-                message.classList.add("error");
-                return;
-            }
-            
-            message.innerHTML = "Вы успешно зарегистрированы!";
-            message.classList.add("success");
-        }
+      async function checkWeather() {
+      const response = await fetch(apiUrl + '&appid=${apiKey}');
+      var data = await response.json();
+
+      console.log(data);
+      }
+
+      checkWeather();
     </script>
-</body>
+
+  </body>
 </html>
-
-
-
