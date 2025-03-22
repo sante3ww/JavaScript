@@ -1,13 +1,8 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const message = document.createElement("h1");
-    message.textContent = "Привет, мир!";
-    document.body.appendChild(message);
+function sumArray(arr) {
+    return arr.reduce((sum, num) => sum + num, 0);
+}
 
-    const time = document.createElement("p");
-    time.textContent = "Текущее время: " + new Date().toLocaleTimeString();
-    document.body.appendChild(time);
-
-    setInterval(() => {
-        time.textContent = "Текущее время: " + new Date().toLocaleTimeString();
-    }, 1000);
-});
+// Примеры использования
+console.log(sumArray([1, 2, 3, 4, 5])); // 15
+console.log(sumArray([10, -2, 8])); // 16
+console.log(sumArray([])); // 0
