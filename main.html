@@ -3,86 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
+    <title>Синусоида на Canvas</title>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            background: linear-gradient(to right, #ff9a9e, #fad0c4);
-            color: #fff;
-            margin: 0;
-            padding: 20px;
-        }
-        #todo-container {
-            max-width: 350px;
-            margin: auto;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        input {
-            width: 70%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background: #ff758c;
-            color: #fff;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        button:hover {
-            background: #ff5858;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s;
-            color: #333;
-        }
-        li:hover {
-            background: rgba(255, 255, 255, 1);
-        }
-        li.done {
-            text-decoration: line-through;
-            color: gray;
-        }
+        canvas { background: #000; display: block; margin: auto; }
     </style>
 </head>
 <body>
-    <h2>To-Do List</h2>
-    <div id="todo-container">
-        <input type="text" id="taskInput" placeholder="Добавьте задачу">
-        <button onclick="addTask()">Добавить</button>
-        <ul id="taskList"></ul>
-    </div>
-
+    <canvas id="waveCanvas"></canvas>
     <script>
-        function addTask() {
-            let input = document.getElementById("taskInput");
-            let taskText = input.value.trim();
-            if (taskText === "") return;
-            
-            let li = document.createElement("li");
-            li.textContent = taskText;
-            li.onclick = () => li.classList.toggle("done");
-            
-            document.getElementById("taskList").appendChild(li);
-            input.value = "";
+        const canvas = document.getElementById("waveCanvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = 300;
+
+        let t = 0;
+
+        function drawWave() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.strokeStyle = "cyan";
+            ctx.lineWidth = 2;
+
+            for (let x = 0; x < canvas.width; x++) {
+                let y = Math.sin((x + t) * 0.02) * 50 + canvas.height / 2;
+                ctx.lineTo(x, y);
+            }
+
+            ctx.stroke();
+            t += 2;
+            requestAnimationFrame(drawWave);
         }
+
+        drawWave();
     </script>
 </body>
 </html>
+
+
