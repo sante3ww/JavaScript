@@ -1,8 +1,35 @@
-function sumArray(arr) {
-    return arr.reduce((sum, num) => sum + num, 0);
+
+let traineeName = "John Doe";
+let age = 25;
+let isActive = true;
+console.log(`Trainee: ${traineeName}, Age: ${age}, Active: ${isActive}`);
+
+function greetTrainee(name) {
+    return `Welcome to the program, ${name}!`;
+}
+console.log(greetTrainee(traineeName));
+
+for (let i = 1; i <= 5; i++) {
+    console.log(`Step ${i}: Learning JavaScript Basics`);
 }
 
-// Примеры использования
-console.log(sumArray([1, 2, 3, 4, 5])); // 15
-console.log(sumArray([10, -2, 8])); // 16
-console.log(sumArray([])); // 0
+let skills = ["HTML", "CSS", "JavaScript"];
+skills.push("React");
+console.log("Updated Skills:", skills);
+
+let trainee = {
+    name: "John Doe",
+    age: 25,
+    skills: skills,
+    introduce: function() {
+        return `Hi, I'm ${this.name}, skilled in ${this.skills.join(", " )}`;
+    }
+};
+console.log(trainee.introduce());
+
+function fetchData() {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve("Data fetched successfully!"), 2000);
+    });
+}
+fetchData().then(response => console.log(response));
