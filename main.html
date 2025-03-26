@@ -3,51 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Таймер</title>
+    <title>Генератор случайных чисел</title>
     <style>
-        body { text-align: center; font-family: Arial, sans-serif; }
-        #timer { font-size: 2em; margin: 20px; }
-        button { margin: 5px; padding: 10px; font-size: 1em; }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
-    <div id="timer">00:00:00</div>
-    <button onclick="startTimer()">Старт</button>
-    <button onclick="stopTimer()">Стоп</button>
-    <button onclick="resetTimer()">Сброс</button>
+    <h1>Случайное число</h1>
+    <p id="result">Нажмите кнопку</p>
+    <button onclick="generateRandomNumber()">Сгенерировать</button>
 
     <script>
-        let timer;
-        let seconds = 0;
-
-        function updateDisplay() {
-            let hrs = String(Math.floor(seconds / 3600)).padStart(2, '0');
-            let mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
-            let secs = String(seconds % 60).padStart(2, '0');
-            document.getElementById('timer').textContent = `${hrs}:${mins}:${secs}`;
-        }
-
-        function startTimer() {
-            if (!timer) {
-                timer = setInterval(() => {
-                    seconds++;
-                    updateDisplay();
-                }, 1000);
-            }
-        }
-
-        function stopTimer() {
-            clearInterval(timer);
-            timer = null;
-        }
-
-        function resetTimer() {
-            stopTimer();
-            seconds = 0;
-            updateDisplay();
+        function generateRandomNumber() {
+            let randomNumber = Math.floor(Math.random() * 100) + 1;
+            document.getElementById("result").innerText = "Число: " + randomNumber;
         }
     </script>
 </body>
 </html>
-
-
