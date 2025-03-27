@@ -1,31 +1,21 @@
-<!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Генератор случайных чисел</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-        }
-    </style>
+    <title>Счетчик</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let count = 0;
+            const counterElement = document.getElementById("counter");
+            const button = document.getElementById("incrementButton");
+
+            button.addEventListener("click", function() {
+                count++;
+                counterElement.textContent = count;
+            });
+        });
+    </script>
 </head>
 <body>
-    <h1>Случайное число</h1>
-    <p id="result">Нажмите кнопку</p>
-    <button onclick="generateRandomNumber()">Сгенерировать</button>
-
-    <script>
-        function generateRandomNumber() {
-            let randomNumber = Math.floor(Math.random() * 100) + 1;
-            document.getElementById("result").innerText = "Число: " + randomNumber;
-        }
-    </script>
+    <p id="counter">0</p>
+    <button id="incrementButton">Увеличить</button>
 </body>
 </html>
