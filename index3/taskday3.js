@@ -67,7 +67,7 @@ switch(milk) {
 }
 
 
-
+//Узнает будет ли скидка или нет
 size === LARGE_SIZE ? sale = 'with 10% sale !' : sale = '!';
 
 console.log(`${buyerName} will buy ${size} ${coffee} ${milk} ${sale} `)
