@@ -24,4 +24,3 @@ if (userStatus) {
 } else {
     console.log("Вам нужно авторизироваться!");
 }
-
