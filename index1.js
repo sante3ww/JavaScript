@@ -10,7 +10,7 @@ let string = "3"
 let string2 = string + 1.5
 let numberFromString2 = parseFloat(string2)
 console.log(typeof string2, string2)
-console.log(typeof numberFromString2, numberFromString2)
+console.log(typeof numberFromString2, numberFromString2) 
 
 
 
