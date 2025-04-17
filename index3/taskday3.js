@@ -13,7 +13,7 @@ let LARGE_SIZE = 6;
 let sale;
 
 
-
+// Выбирает любой кофе из трех
 let randomCoffee = Math.floor(Math.random() * 3) + 1
 switch(randomCoffee) {
     case 1:
@@ -33,7 +33,7 @@ switch(randomCoffee) {
 }
 
 
-
+// Выбирает любой размер из трех
 let randomSize = Math.floor(Math.random() * 3) + 4
 switch(randomSize) {
     case 4:
@@ -53,7 +53,7 @@ switch(randomSize) {
 }
 
 
-
+// Выбирает с молоком или без
 let milk = Math.random() < 0.5
 switch(milk) {
     case true:
