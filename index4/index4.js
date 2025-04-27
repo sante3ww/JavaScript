@@ -1,12 +1,3 @@
-// let pcSetup = ['Системный блок', 'Монитор']
-// console.log(pcSetup, pcSetup.length)
-
-// pcSetup[2] = 'Мышь'
-// pcSetup[pcSetup.length] = 'Клавиатура'
-
-// console.log(pcSetup, pcSetup.length)
-
-
 let topSpotify = [
     'Timeless',
     'DtMF',
